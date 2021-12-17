@@ -95,8 +95,12 @@ elif add_selectbox=='HIGHEST OIL PRODUCTION IN A YEAR':
     produksi=df_merge.iloc[:,2]
     tahun=st.slider("Pick A Year",min_value=1971,max_value=2015,key='nomor4')
     tahun_sort=maxprod_yearsort(tahun)
+    tahun_sort=tahun_sort[tahun_sort['produksi']!=0]
+    kecil=tahun_sort.nsmallest(1,'produksi')
     column_max=[tahun_sort.iloc[0,3],tahun_sort.iloc[0,2],tahun_sort.iloc[0,8],tahun_sort.iloc[0,9]]
+    column_min=[kecil.iloc[0,3],kecil.iloc[0,2],kecil.iloc[0,8],kecil.iloc[0,9]]
     st.write('Highest Oil Production in ',str(tahun),' was from ',column_max[0],',',column_max[3],',',column_max[2],'. With production at ',str(column_max[1]),' BO.')
+    st.write('Lowest Oil Production in ',str(tahun),' was from ',column_min[0],',',column_min[3],',',column_min[2],'. With production at ',str(column_min[1]),' BO.')
 elif add_selectbox=='MAIN MENU':
     col1,col2,col3=st.columns(3)
     with col2:
