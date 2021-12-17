@@ -42,7 +42,7 @@ def Chart_data3(a,b,c,d,e,v,w,x,y,z):
 ##---------------------------------------GUI DEVELOPMENT--------------------------------------------------##
 ############################################################################################################
 #-------------------------------------------MAIN MENU------------------------------------------------------#
-List=["MAIN MENU","OIL PRODUCTION OF A COUNTRY (1971-2015)","TOP PRODUCTION IN A YEAR","TOP PRODUCTION OF EACH COUNTRY","HIGHEST OIL PRODUCTION IN A YEAR"]
+List=["MAIN MENU","OIL PRODUCTION OF A COUNTRY (1971-2015)","TOP PRODUCTION IN A YEAR","TOP PRODUCTION OF EACH COUNTRY","HIGH/LOW OIL PRODUCTION IN A YEAR"]
 add_selectbox=st.sidebar.selectbox(label='CHOOSE',options=List)
 if add_selectbox=='OIL PRODUCTION OF A COUNTRY (1971-2015)':
     st.subheader("Global Oil Production Website")
@@ -86,7 +86,7 @@ elif add_selectbox=='TOP PRODUCTION OF EACH COUNTRY':
     df3=Chart_data3(cd1,cd2,cd3,cd4,cd5,negara1,negara2,negara3,negara4,negara5)
     bar_top5=px.bar(df3,x='Country',y='Production',color='Production',title='Top Production of Each Country')
     st.write(bar_top5)
-elif add_selectbox=='HIGHEST OIL PRODUCTION IN A YEAR':
+elif add_selectbox=='HIGH/LOW OIL PRODUCTION IN A YEAR':
     st.subheader("Global Oil Production Website")
     st.caption("Data from 1971-2015")
     namacountry=df_merge.iloc[:,3]
